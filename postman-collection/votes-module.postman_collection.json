@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "06536e16-e8d6-4629-9873-62a0746b0bd4",
+		"name": "votes-module",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20571760",
+		"_collection_link": "https://cloudy-water-391593.postman.co/workspace/doctor_online~2fb2c460-414a-47a4-9bc0-fd5e6e8217fb/collection/20571760-06536e16-e8d6-4629-9873-62a0746b0bd4?action=share&creator=20571760&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "candidates",
+			"item": [
+				{
+					"name": "openCreateCandidates",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/admin/openCreate",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"openCreate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "closeCreateCandidates",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/admin/closeCreate",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"closeCreate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listCandidates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/list",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createCandidate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\": 1,\n    \"Name\" : \"Manuel\",\n    \"LastName\" : \"Villacorta\",\n    \"PolicicalParty\" : \"VOS\",\n    \"CUI\" : \"3006683850101\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/create",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "votes",
+			"item": [
+				{
+					"name": "createVote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"voterId\": \"1301219\",\n    \"candidateId\": 1,\n    \"ipAddress\": \"192.168.1.1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/cast",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"cast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "openVoteProcess",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/admin/open",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"open"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "closeVoteProcess",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/admin/close",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"close"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listVotes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/list",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "stadistics",
+			"item": [
+				{
+					"name": "statsVotesProcess",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3002/stats",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
