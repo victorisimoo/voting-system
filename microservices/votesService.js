@@ -7,6 +7,22 @@ let fraudAttempts = 0;
 let state = "vote";
 
 /**
+ * @description: GET /list - This endpoint retrieves a list of all votes that have been cast and the number of fraud attempts. 
+ * It returns a response with an object containing the votes array and the fraudAttempts count. The votes array 
+ * contains an object for each vote, with the voter ID, candidate ID, IP address, and date of the vote. The fraudAttempts 
+ * count is the total number of times a voter has attempted to cast multiple votes. The server responds with an HTTP status 
+ * code of 200 indicating a successful operation.
+ * 
+ * @auth: victorisimoo
+ */
+app.get('/list', (req, res) => {
+    res.status(200).send({
+        votes: votes,
+        fraudAttempts: fraudAttempts
+    });
+});
+
+/**
  * @description: POST /cast -
  *  This endpoint records a vote for a specific candidate from a specific voter, along with the voter's IP address
  *  and the date of the vote. It ensures that the state of the voting phase is "vote" before accepting the vote, 
@@ -23,7 +39,7 @@ app.post('/cast', (req, res) => {
     const { voterId, candidateId, ipAddress } = req.body;
     const existingVote = votes.find(vote => vote.voterId === voterId);
     if (existingVote) {
-        fraudAttempts++;
+        fraudAttempts++; // fraudAttempts = fraudAttempts + 1 
         return res.status(400).send('[SERVER]: ¡Ya has votado, no puedes votar de nuevo!');
     }
     const vote = {
